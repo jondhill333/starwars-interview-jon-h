@@ -48,6 +48,8 @@ class PersonComponent extends React.Component {
           <h3>{this.state.person.name}</h3>
           <div>Birth year: {this.state.person.birth_year}</div>
           {year !== 'error' && <div>Year number: {doExtractYearFromBBY(this.state.person.birth_year)}</div>}
+          {year !== 'error' && year % 2 === 0 && <div>Is even? Yes</div>}
+          {year !== 'error' && year % 2 !== 0 && <div>Is even? No</div>}
         </div>
       )
     } else
