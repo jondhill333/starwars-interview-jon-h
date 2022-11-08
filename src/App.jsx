@@ -41,15 +41,38 @@ class Person extends React.Component {
     if (hasState === false) {
       return "Loading..."
     } else if (hasState === true) {
+      let year = doExtractYearFromBBY(this.state.person.birth_year)
       return (
         <div>
           <h3>{this.state.person.name}</h3>
-          <div>{this.state.person.birth_year}</div>
+          <div>Birth year: {this.state.person.birth_year}</div>
+          {year !== 'error' && <div>Year number: {doExtractYearFromBBY(this.state.person.birth_year)}</div>}
         </div>
       )
     } else
       console.error('hasState is not a boolean')
       return "Something went wrong"
+  }
+}
+
+function doExtractYearFromBBY(str) {
+  try {
+    if (typeof str !== 'string') {
+      console.error(`${str} was not a string`)
+      throw Error('not a string')
+    }
+    if (!/BBY$/.test(str)) {
+      console.error(`${str} did not end in BBY`)
+      throw Error('not in BBY format')
+    }
+    const number = parseInt(str.substring(0, 2));
+    if (isNaN(number)) {
+      console.error(`${str} was not a number`)
+      throw Error('not a number')
+    }
+    return number
+  } catch (error) {
+    return 'error'
   }
 }
 
