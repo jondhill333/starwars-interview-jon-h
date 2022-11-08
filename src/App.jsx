@@ -38,10 +38,10 @@ class PersonComponent extends React.Component {
   }
 
   render() {
-    const hasState = this.state !== null
-    if (hasState === false) {
+    const has_state = this.state !== null
+    if (has_state === false) {
       return "Loading..."
-    } else if (hasState === true) {
+    } else if (has_state === true) {
       let year = doExtractYearFromBBY(this.state.person.birth_year)
       return (
         <div>
@@ -51,7 +51,7 @@ class PersonComponent extends React.Component {
         </div>
       )
     } else
-      console.error('hasState is not a boolean')
+      console.error('has_state is not a boolean')
       return "Something went wrong"
   }
 }
