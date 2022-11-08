@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { doExtractYearFromBBY } from "./utils";
 
 const App = () => {
   const [people, setPeople] = useState()
@@ -19,12 +20,12 @@ const App = () => {
 
   return (
     <ul>
-      {people ? people.map(person => <Person person={person} />) : 'Loading'}
+      {people ? people.map(person => <PersonComponent person={person} />) : 'Loading'}
     </ul>
   );
 }
 
-class Person extends React.Component {
+class PersonComponent extends React.Component {
   async componentDidMount() {
     try {
       const resp = await window.fetch(this.props.person['url'])
@@ -52,27 +53,6 @@ class Person extends React.Component {
     } else
       console.error('hasState is not a boolean')
       return "Something went wrong"
-  }
-}
-
-function doExtractYearFromBBY(str) {
-  try {
-    if (typeof str !== 'string') {
-      console.error(`${str} was not a string`)
-      throw Error('not a string')
-    }
-    if (!/BBY$/.test(str)) {
-      console.error(`${str} did not end in BBY`)
-      throw Error('not in BBY format')
-    }
-    const number = parseInt(str.substring(0, 2));
-    if (isNaN(number)) {
-      console.error(`${str} was not a number`)
-      throw Error('not a number')
-    }
-    return number
-  } catch (error) {
-    return 'error'
   }
 }
 
