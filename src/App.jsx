@@ -7,8 +7,8 @@ const App = () => {
   useEffect(() => {
     const req = new XMLHttpRequest();
     try {
-      req.onload = () => {
-        const data = JSON.parse(req.responseText)
+      req.onload = async () => {
+        const data = await JSON.parse(req.responseText)
         setPeople(data.results)
       }
     } catch (error) {
