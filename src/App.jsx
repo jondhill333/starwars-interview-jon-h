@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <ul>
-      {people ? people?.map(person => <PersonComponent person={person} />) : 'Loading'}
+      {people ? people?.map(person => <PersonComponent p={person} />) : 'Loading'}
     </ul>
   );
 }
@@ -29,7 +29,7 @@ const App = () => {
 class PersonComponent extends React.Component {
   async componentDidMount() {
     try {
-      const resp = await window.fetch(this.props.person['url'])
+      const resp = await window.fetch(this.props.p['url'])
       const text = await resp.text()
       const person = await JSON.parse(text)
               // Set the state.
