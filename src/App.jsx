@@ -31,7 +31,7 @@ class PersonComponent extends React.Component {
     try {
       const resp = await window.fetch(this.props.person['url'])
       const text = await resp.text()
-      const person = JSON.parse(text)
+      const person = await JSON.parse(text)
               // Set the state.
       this.setState({ person: person })
     } catch {
