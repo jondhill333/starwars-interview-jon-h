@@ -46,7 +46,7 @@ class PersonComponent extends React.Component {
       return "Loading..."
     } else if (has_state === true) {
       /* extract year from BBY birth date */
-      let year = doExtractYearFromBBY(this.state.person.birth_year)
+      let year = doExtractYearFromBBY(this.props.p.birth_year)
       return (
         <div>
           {/* Desplay the charector nam */}
