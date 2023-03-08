@@ -1,5 +1,5 @@
-var { doExtractYearFromBBY } = require('./utils')
 import React, { useState, useEffect } from "react";
+import { doExtractYearFromBBY } from "./utils";
 
 const App = () => {
   const [people, setPeople] = useState()
