@@ -20,6 +20,8 @@ Add a text field that filters the results using the [`search` parameter](https:/
 ## Part 3: details page
 Add a separate page that accepts an ID of a StarWars character via a parameter in the URL. It should load the character from the SWAPI and display their name.
 
+The main page that lists characters should link to this page.
+
 This task will likely require use of [React Router](https://reactrouter.com/en/main) or a similar library. Feel free to Google for a hello world example when setting this up.
 
 ## Part 4: sharing button
