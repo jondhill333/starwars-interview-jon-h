@@ -2,6 +2,14 @@ const TYPES = {
   string: "string",
 };
 
+/**
+ * Extracts the year from a string in the format of "xxBBY".
+ *
+ * Examples:
+ * - "123BBY" => 123
+ * - "02BBY" => 2
+ * - "unknown" => "error"
+ */
 export function doExtractYearFromBBY(str) {
   try {
     if (typeof str !== TYPES?.string) {
