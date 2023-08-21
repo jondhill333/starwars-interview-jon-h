@@ -1,8 +1,9 @@
 {
-  "name": "damian-frontend-refactoring-interview",
+  "name": "uw-bug-fixing-exercise-frontend",
   "version": "0.1.0",
   "description": "",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "start": "vite",
     "preview": "vite preview",
