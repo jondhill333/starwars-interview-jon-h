@@ -11,22 +11,32 @@ const TYPES = {
  * - "unknown" => "error"
  */
 export function doExtractYearFromBBY(str) {
-  try {
-    if (typeof str !== TYPES?.string) {
+  const number = str.split("BBY")[0]
+  console.log(str)
+
+  switch(str){
+
+    case str === "unknown":
+      console.error("year is unknown");
+      throw Error("year is unknown");
+
+    case typeof str !== TYPES?.string:
       console.error(`${str} was not a string`);
       throw Error("not a string");
-    }
-    if (!/BBY$/.test(str)) {
+
+    case !str.includes('BBY'): 
       console.error(`${str} did not end in BBY`);
       throw Error("not in BBY format");
-    }
-    const number = parseInt(str?.substring(0, 2));
-    if (isNaN(number)) {
+
+    case isNaN(number): 
       console.error(`${str} was not a number`);
       throw Error("not a number");
-    }
-    return number;
-  } catch (error) {
-    return "error";
-  }
+
+      default:
+        return number;
+        
+  }  
 }
+
+
+
